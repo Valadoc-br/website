@@ -3,4 +3,4 @@
 	url = https://github.com/valadoc-br/docs.git
 [submodule "materials"]
 	path = materials
-	url = git@github.com:valadoc-br/materials.git
+	url = https://github.com/valadoc-br/materials.git
