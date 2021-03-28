@@ -1,0 +1,19 @@
+<app-toolbar></app-toolbar>
+
+<div class="content" role="main">
+  <div id="content-container">
+    <section class="grid-team">
+      <div class="two-thirds">
+        <h1>Conheça a equipe do Valadoc Brasil</h1>
+        <p class="subtitle">Este projeto não existiria sem o envolvimento de membros dedicados da comunidade de código aberto.</p>
+      </div>
+      <div class="whole">
+        <div class="team-directory">
+          <app-member *ngFor="let member of members" [valor]="member"></app-member>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<app-footer></app-footer>

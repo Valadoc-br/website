@@ -1,0 +1,9 @@
+<div class="member">
+  <div class="member_photo" style="background-image:url({{ urlPhoto }})"></div>
+  <h5 class="member_name" data-l10n-off="1">{{ name }}</h5>
+  <!-- <span class="member_title" data-l10n-off="1">{{ bio }}</span> -->
+
+  <div class="card-container">
+    <app-icon-member *ngFor="let icon of icons" [valor]="icon"></app-icon-member>
+  </div>
+</div>
