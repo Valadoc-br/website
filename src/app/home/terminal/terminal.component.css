@@ -1,0 +1,63 @@
+.terminal {
+  position: relative;
+  max-width: 600px;
+  border-radius: 6px;
+  padding-top: 45px;
+  margin-top: 8px;
+  overflow: hidden;
+  background-color: #FDF6E3;
+}
+
+.terminal::before {
+  content: "\2022 \2022 \2022";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background: #1651B8;
+  color: #c2c3c4;
+  width: 100%;
+  font-size: 2rem;
+  line-height: 0;
+  padding: 8px 0;
+  text-indent: 4px;
+}
+
+.terminal pre {
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  color: #657B83;
+  padding: 0 1rem 1rem;
+  margin: 0;
+}
+
+.terminal-text-default1 {
+  color: #859901;
+}
+
+.terminal-text-default2 {
+  color: #B58901;
+}
+
+.terminal-text-default3 {
+  color: #F52472;
+}
+
+.terminal-text-default4 {
+  color: #268BD2;
+}
+
+.terminal-text-default5 {
+  color: #2AA198;
+}
+
+.terminal-text-default6{
+  color: #AC80FF;
+}
+
+.terminal-text-default7{
+  color: #859901;
+}
+
+.terminal-text-default8{
+  color: #2AA198;
+}

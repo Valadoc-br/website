@@ -1,0 +1,43 @@
+#content-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin-left: 240px;
+  min-height: calc(100vh - 48px);
+  text-align: left;
+  vertical-align: top;
+  width: calc(100% - 240px);
+  margin-bottom: 49px;
+}
+
+#content {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  max-width: 1000px;
+  margin: 12px auto;
+  padding: 0 24px;
+  width: calc(100% - 48px);
+}
+
+.has-sidebar .row.docs {
+  margin: 0 auto;
+  max-width: 1100px;
+  padding-left: 324px;
+}
+
+.row {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 48px 24px;
+  text-align: center;
+  width: auto;
+}
+
+.row.docs, .row.docs .slide {
+  max-width: 800px;
+}

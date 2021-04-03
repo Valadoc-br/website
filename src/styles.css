@@ -8,12 +8,24 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html, body {
+  box-sizing: border-box;
+  color: #333;
+  fill: #333;
+  font-family: "Open Sans", "Droid Sans", Helvetica, sans-serif;
+  font-weight: 400;
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
+  font-weight: 400;
   margin: 8px 0;
 }
 
@@ -23,4 +35,27 @@ p {
 
 .subtitle {
   font-size: 17px;
+  font-weight: 300;
+  margin: 0 0 16px;
+  padding: 0;
 }
+
+a,
+a:link,
+a:visited,
+a:active {
+  color: #000000;
+  text-decoration: none;
+  font-weight: 300;
+}
+
+a:hover {
+  color: #000000;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.toolbar-docs {
+  position: fixed;
+}
+

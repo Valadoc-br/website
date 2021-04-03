@@ -54,9 +54,6 @@ export class TeamComponent implements OnInit {
       if (icons.telegram.length > 0){
         memberComponent.icons.push(mountIconMember('Telegram', icons.telegram, Type.TELEGRAM));
       }
-
-      console.log(counter);
-      console.log(memberComponent);
       counter++;
     }
   }

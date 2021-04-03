@@ -1,0 +1,24 @@
+<div class="terminal">
+  <pre>
+<span class="terminal-text-default1">public class</span> <span class="terminal-text-default2">MyApp</span> <span class="terminal-text-default1">:</span> <span class="terminal-text-default4">Gtk.Application</span> {{ '{' }}
+    <span class="terminal-text-default1">public</span> <span class="terminal-text-default2">MyApp</span> () {{ '{' }}
+        <span class="terminal-text-default4">Object</span> (
+            application_id<span class="terminal-text-default1">:</span> <span class="terminal-text-default5">"com.github.myteam.myapp"</span>,
+            flags<span class="terminal-text-default1">:</span> <span class="terminal-text-default4">ApplicationFlags</span>.<span class="terminal-text-default6">FLAGS_NONE</span>
+        );
+    {{ '}' }}
+
+    <span class="terminal-text-default1">protected override</span> <span class="terminal-text-default4">void</span> <span class="terminal-text-default2">activate</span> ()  {{ '{' }}
+        <span class="terminal-text-default4">var</span> window <span class="terminal-text-default1">=</span> <span class="terminal-text-default1">new</span> <span class="terminal-text-default4">Gtk.ApplicationWindow</span> (<span class="terminal-text-default7">this</span>) {{ '{' }}
+            default_height <span class="terminal-text-default1">=</span> <span class="terminal-text-default6">768</span>,
+            default_width <span class="terminal-text-default1">=</span> <span class="terminal-text-default6">1024</span>,
+            title <span class="terminal-text-default1">=</span> <span class="terminal-text-default5">"MyApp"</span>
+        {{ '}' }};
+        window<span class="terminal-text-default1">.</span>show_all ();
+    {{ '}' }}
+
+    <span class="terminal-text-default1">public static</span> <span class="terminal-text-default4">int</span> <span class="terminal-text-default2">main</span> (<span class="terminal-text-default4">string</span>[] <span class="terminal-text-default7">args</span>) {{ '{' }}
+         <span class="terminal-text-default1">return new</span> <span class="terminal-text-default4">MyApp</span> ()<span class="terminal-text-default1">.</span>run (args);
+    {{ '}' }}
+{{ '}' }}</pre>
+</div>

@@ -83,8 +83,10 @@ The last lines simply end the definitions of the method and class.
 
 Assuming you have Vala installed, then all it takes to compile and execute this program is:
 
+```sh
 $ valac hello.vala
 $ ./hello
+```
 
 _valac_ is the Vala compiler, which will compile your Vala code into a binary. The resulting binary will have the same name as the source file and can then be directly executed on the machine. You can probably guess the output.
 
@@ -99,20 +101,26 @@ The upshot of all this is that you can put as many classes or functions into a f
 
 All source files for the same package are supplied as command line parameters to the Vala compiler valac, along with compiler flags. This works similarly to how Java source code is compiled. For example:
 
+```sh
 $ valac compiler.vala --pkg libvala
+```
 
 will produce a binary with the name _compiler_ that links with the package _libvala_. In fact, this is how the _valac_ compiler is produced!
 
 If you want the binary to have a different name or if you have passed multiple source files to the compiler you can specify the binary name explicitly with the \-o switch:
 
+```sh
 $ valac source1.vala source2.vala -o myprogram
 $ ./myprogram
+```
 
 If you give _valac_ the \-C switch, it won't compile your program into a binary file. Instead it will output the intermediate C code for each of your Vala source files into a corresponding C source file, in this case _source1.c_ and _source2.c_. If you look at the content of these files you can see that programming a class in Vala is equivalent to the same task in C, but a whole lot more succinct. You will also notice that this class is registered dynamically in the running system. This is a good example of the power of the GNOME platform, but as I've said before, you do not need to know much about this to use Vala.
 
 If you want to have a C header file for your project you can use the \-H switch:
 
+```sh
 $ valac hello.vala -C -H hello.h
+```
 
 ### Syntax Overview
 
@@ -130,11 +138,13 @@ Reference types are instantiated using the new operator and the name of a constr
 
 Vala allows comments in code in different ways.
 
+```vala
 // Comment continues until end of line
 /\* Comment lasts between delimiters \*/
 /\*\*
  \* Documentation comment
  \*/
+```
 
 These are handled in the same way as in most other languages and so need little explanation. Documentation comments are actually not special to Vala, but a documentation generation tool like [Valadoc](https://wiki.gnome.org/Projects/Valadoc) will recognise them.
 
@@ -171,6 +181,7 @@ Vala supports a set of the simple types as most other languages do.
 
 Here are some examples.
 
+```vala
 /\* atomic types \*/
 unichar c = 'u';
 float percentile = 0.75f;
@@ -187,6 +198,7 @@ enum WindowType {
  TOPLEVEL,
  POPUP
 }
+```
 
 Most of these types may have different sizes on different platforms, except for the guaranteed-size integer types. The sizeof operator returns the size that a variable of a given type occupies in bytes:
 
@@ -198,7 +210,9 @@ You can determine the minimum and maximum values of a numerical type with _.MIN_
 
 The data type for strings is string. Vala strings are UTF-8 encoded and immutable.
 
+```vala
 string text = "A string literal";
+```
 
 Vala offers a feature called _verbatim strings_. These are strings in which escape sequences (such as \\n) won't be interpreted, line breaks will be preserved and quotation marks don't have to be masked. They are enclosed with triple double quotation marks. Possible indentations after a line break are part of the string as well.
 
@@ -208,37 +222,47 @@ They may contain quotes and may span multiple lines.""";
 
 Strings prefixed with '@' are string templates. They can evaluate embedded variables and expressions prefixed with '$':
 
+```vala
 int a = 6, b = 7;
 string s = @"$a \* $b = $(a \* b)";  // => "6 \* 7 = 42"
+```
 
 The equality operators \== and != compare the content of two strings, contrary to Java's behaviour which in this case would check for referential equality.
 
 You can slice a string with \[start:end\]. Negative values represent positions relative to the end of the string:
 
+```vala
 string greeting = "hello, world";
 string s1 = greeting\[7:12\];        // => "world"
 string s2 = greeting\[-4:-2\];       // => "or"
+```
 
 Note that indices in Vala start with 0 as in most other programming languages. Starting with Vala 0.11 you can access a single byte of a string with \[index\]:
 
+```vala
 uint8 b = greeting\[7\];             // => 0x77
+```
 
 However, you cannot assign a new byte value to this position, since Vala strings are immutable.
 
 Many of the basic types have reasonable methods for parsing from and converting to strings, for example:
 
+```vala
 bool b = bool.parse("false");           // => false
 int i = int.parse("\-52");               // => -52
 double d = double.parse("6.67428E-11"); // => 6.67428E-11
 string s1 = true.to\_string();           // => "true"
 string s2 = 21.to\_string();             // => "21"
+```
 
 Two useful methods for writing and reading strings to/from the console (and for your first explorations with Vala) are _stdout.printf()_ and _stdin.read\_line()_:
 
+```vala
 stdout.printf("Hello, world\\n");
 stdout.printf("%d %g %s\\n", 42, 3.1415, "Vala");
 string input = stdin.read\_line();
 int number = int.parse(stdin.read\_line());
+```
 
 You already know _stdout.printf()_ from the _Hello World_ example. Actually, it can take an arbitrary number of arguments of different types, whereas the first argument is a _format string_, following the same rules as [C format strings](http://en.wikipedia.org/wiki/Printf). If you must output an error message you can use _stderr.printf()_ instead of _stdout.printf()_.
 
@@ -254,19 +278,26 @@ A [sample program](https://wiki.gnome.org/Projects/Vala/StringSample) demonstrat
 
 An array is declared by giving a type name followed by \[\] and created by using the new operator e.g. int\[\] a = new int\[10\] to create an array of integers. The length of such an array can be obtained by the _length_ member variable e.g. int count = a.length. Note that if you write Object\[\] a = new Object\[10\] no objects will be created, just the array to store them in.
 
+```vala
 int\[\] a = new int\[10\];
 int\[\] b = { 2, 4, 6, 8 };
+```
 
 You can slice an array with \[start:end\]:
 
+```vala
 int\[\] c = b\[1:3\];     // => { 4, 6 }
+```
 
 Slicing an array will result in a reference to the requested data, not a copy. However, assigning the slice to an owned variable (as is done above) will result in a copy. If you would like to avoid a copy, you must either assign the slice to an unowned array or pass it directly to an argument (arguments are, by default, unowned):
 
+```vala
 unowned int\[\] c = b\[1:3\];     // => { 4, 6 }
+```
 
 Multi-dimensional arrays are defined with \[,\] or \[,,\] etc.
 
+```vala
 int\[,\] c = new int\[3,4\];
 int\[,\] d = {{2, 4, 6, 8},
  {3, 5, 7, 9},
@@ -277,12 +308,15 @@ This sort of array is represented by a single contiguous memory block. Jagged mu
 
 To find the length of each dimension in a multi-dimensional array, the _length_ member becomes an array, storing the length of each respective dimension.
 
+```vala
 int\[,\] arr = new int\[4,5\];
 int r = arr.length\[0\];
 int c = arr.length\[1\];
+```
 
 Please note that you can't get a mono-dimensional array from a multidimensional array, or even slice a multidimensional array:
 
+```vala
 int\[,\] arr = {{1,2},
  {3,4}};
 int\[\] b = arr\[0\];  // won't work
@@ -290,28 +324,37 @@ int\[\] c = arr\[0,\];  // won't work
 int\[\] d = arr\[:,0\];  // won't work
 int\[\] e = arr\[0:1,0\];  // won't work
 int\[,\] f = arr\[0:1,0:1\];  // won't work
+```
 
 You can append array elements dynamically with the += operator. However, this works only for locally defined or private arrays. The array is automatically reallocated if needed. Internally this reallocation happens with sizes growing in powers of 2 for run-time efficiency reasons. However, .length holds the actual number of elements, not the internal size.
 
+```vala
 int\[\] e = {};
 e += 12;
 e += 5;
 e += 37;
+```
 
 You can resize an array by calling _resize()_ on it. It will keep the original content (as much as fits).
 
+```vala
 int\[\] a = new int\[5\];
 a.resize(12);
+```
 
 You can move elements within an array by calling _move(src, dest, length)_ on it. The original positions will be filled with 0.
 
+```vala
 uint8\[\] chars = "hello world".data;
 chars.move (6, 0, 5);
 print ((string) chars); // "world "
+```
 
 If you put the square brackets _after_ the identifier together with an indication of size you will get a fixed-size array. Fixed-size arrays are allocated on the stack (if used as local variables) or in-line allocated (if used as fields) and you can't reallocate them later.
 
+```vala
 int f\[10\];     // no 'new ...'
+```
 
 Vala does not do any bounds checking for array access at runtime. If you need more safety you should use a more sophisticated data structure like an _ArrayList_. You will learn more about that later in the section about _collections_.
 
@@ -319,6 +362,7 @@ Vala does not do any bounds checking for array access at runtime. If you need mo
 
 The reference types are all types declared as a class, regardless of whether they are descended from GLib's _Object_ or not. Vala will ensure that when you pass an object by reference the system will keep track of the number of references currently alive in order to manage the memory for you. The value of a reference that does not point anywhere is null. More on classes and their features in the section about object oriented programming.
 
+```vala
 /\* defining a class \*/
 class Track : GLib.Object {             /\* subclassing 'GLib.Object' \*/
  public double mass;                 /\* a public field \*/
@@ -328,13 +372,16 @@ class Track : GLib.Object {             /\* subclassing 'GLib.Object' \*/
  terminated = true;
  }
 }
+```
 
 #### Static Type Casting
 
 In Vala, you can cast a variable from one type to another. For a static type cast, a variable is casted by the desired type name with parenthesis. A static cast doesn't impose any runtime type safety checking. It works for all Vala types. For example,
 
+```vala
 int i = 10;
 float j = (float) i;
+```
 
 Vala supports another casting mechanism called _dynamic cast_ which performs runtime type checking and is described in the section about object oriented programming.
 
@@ -342,18 +389,24 @@ Vala supports another casting mechanism called _dynamic cast_ which performs run
 
 Vala has a mechanism called _type inference_, whereby a local variable may be defined using var instead of giving a type, so long as it is unambiguous what type is meant. The type is inferred from the right hand side of the assignment. It helps reduce unnecessary redundancy in your code without sacrificing static typing:
 
+```vala
 var p = new Person();     // same as: Person p = new Person();
 var s = "hello";          // same as: string s = "hello";
 var l = new List<int\>();  // same as: List<int> l = new List<int>();
 var i = 10;               // same as: int i = 10;
+```
 
 This only works for local variables. Type inference is especially useful for types with generic type arguments (more on these later). Compare
 
+```vala
 MyFoo<string, MyBar<string, int\>> foo = new MyFoo<string, MyBar<string, int\>>();
+```
 
 vs.
 
+```vala
 var foo = new MyFoo<string, MyBar<string, int\>>();
+```
 
 #### Defining new Type from other
 
@@ -361,12 +414,14 @@ Defining a new type is a matter of derive it from the one you need. Here is an e
 
 defining an alias for a basic type (equivalent to typedef int Integer in C)\*/ \[[SimpleType](https://wiki.gnome.org/SimpleType)\] public struct Integer : uint { }
 
+```vala
 /\* Define a new type from a container like GLib.List with elements type GLib.Value \*/
 public class ValueList : GLib.List<GLib.Value\> {
  \[CCode (has\_construct\_function = false)\]
  protected ValueList ();
  public static GLib.Type get\_type ();
 }
+```
 
 ### Operators
 
