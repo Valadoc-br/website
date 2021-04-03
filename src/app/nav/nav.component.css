@@ -1,4 +1,4 @@
-.toolbar {
+.nav {
   position: relative;
   top: 0;
   left: 0;
@@ -12,7 +12,7 @@
   z-index: 100;
 }
 
-.toolbar img {
+.nav img {
   margin: 0 16px;
 }
 

@@ -7,6 +7,7 @@
   overflow: hidden;
   background-color: #FDF6E3;
   box-shadow: 0 4px 7px rgba(0, 0, 0, 0.35);
+  font-size: 13px;
 }
 
 .terminal::before {
@@ -16,12 +17,12 @@
   left: 0;
   height: 4px;
   background: #1651B8;
-  color: #c2c3c4;
+  color: #ffffff;
   width: 100%;
-  font-size: 2rem;
   line-height: 0;
   padding: 8px 0;
   text-indent: 4px;
+  font-size: 30px;
 }
 
 .terminal pre {
