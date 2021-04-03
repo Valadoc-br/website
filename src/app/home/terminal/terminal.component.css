@@ -6,6 +6,7 @@
   margin-top: 8px;
   overflow: hidden;
   background-color: #FDF6E3;
+  box-shadow: 0 4px 7px rgba(0, 0, 0, 0.35);
 }
 
 .terminal::before {

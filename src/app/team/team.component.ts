@@ -18,6 +18,7 @@ export class TeamComponent implements OnInit {
     let counter = 0;
     const membersService = this.teamService.getTeam();
 
+    // tslint:disable-next-line:typedef
     function mountIconMember(title: string, href: string, type: Type){
       const iconMemberComponent = new IconMemberComponent();
       iconMemberComponent.title = title;
@@ -26,7 +27,8 @@ export class TeamComponent implements OnInit {
       return iconMemberComponent;
     }
 
-    for(const memberService in membersService) {
+    // tslint:disable-next-line:forin
+    for (const memberService in membersService) {
       const memberComponent = new MemberComponent();
       memberComponent.urlPhoto = membersService[counter].urlPhoto;
       memberComponent.name = membersService[counter].name;
