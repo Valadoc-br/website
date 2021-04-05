@@ -3,7 +3,8 @@
     "Brazil": "Brazil"
   },
   "nav": {
-    "select-language": "Select Language"
+    "select-language": "Select Language",
+    "language": "Site language"
   },
   "footer": {
     "meet-the-team": "Meet the team",

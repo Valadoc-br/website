@@ -52,11 +52,16 @@ nav img {
   white-space: pre;
   cursor: default;
   font: 400 13.3333px Arial;
-  border-radius: 0px;
+  border-radius: 5px;
   width: 11%;
 }
 
 select#lang-switcher, :after, :before {
   box-sizing: border-box;
-  border: 0 solid #e7e8f2;
+  border: 1px solid #ffffff;
+}
+
+#label-idioma-site {
+  font-size: 12px;
+  font-weight: 300;
 }

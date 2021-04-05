@@ -4,10 +4,10 @@
   </a>
   <span>Valadoc {{ 'common.Brazil' | translate }}</span>
   <div class="spacer"></div>
-
-    <select id="lang-switcher" (change)="changeLang($event)" >
-      <option value="pt_BR">Português do Brasil</option>
-      <option value="en">English</option>
-    </select>
+  <label id="label-idioma-site">{{ 'nav.language' | translate }}:&nbsp;&nbsp;</label>
+  <select id="lang-switcher" (change)="changeLang($event)" >
+    <option value="pt_BR">Português do Brasil</option>
+    <option value="en">English</option>
+  </select>
 </nav>
 <br><br><br>
