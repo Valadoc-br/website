@@ -1,0 +1,23 @@
+{
+  "common": {
+    "Brazil": "Brasil"
+  },
+  "nav": {
+    "select-language": "Selecione o idioma"
+  },
+  "footer": {
+    "meet-the-team": "Conheça a equipe",
+    "report-problem": "Reportar problema"
+  },
+  "home": {
+    "title": "Vala",
+    "subtitle": "Uma linguagem de programação moderna, rápida e de código aberto.",
+    "learn-vala": "Aprenda Vala",
+    "vala-apps-with-gtk": "Criando aplicativos Vala com GTK",
+    "libraries-and-apis": "Bibliotecas e API's"
+  },
+  "team": {
+    "title": "Conheça a equipe do Valadoc Brasil",
+    "subtitle": "Este projeto não existiria sem o envolvimento de membros dedicados da comunidade de código aberto."
+  }
+}

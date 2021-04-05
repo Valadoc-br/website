@@ -55,7 +55,10 @@ a:hover {
   font-weight: 400;
 }
 
-.toolbar-docs {
+.nav-fixed {
   position: fixed;
 }
 
+.nav-relative {
+  position: relative;
+}

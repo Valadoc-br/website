@@ -1,0 +1,23 @@
+{
+  "common": {
+    "Brazil": "Brazil"
+  },
+  "nav": {
+    "select-language": "Select Language"
+  },
+  "footer": {
+    "meet-the-team": "Meet the team",
+    "report-problem": "Report problem"
+  },
+  "home": {
+    "title": "Vala",
+    "subtitle": "A modern, fast and open source programming language.",
+    "learn-vala": "Learn vala",
+    "vala-apps-with-gtk": "Creating Vala apps with GTK",
+    "libraries-and-apis": "Libraries and API's"
+  },
+  "team": {
+    "title": "Meet the Valadoc Brasil team",
+    "subtitle": "This project would not exist without the involvement of dedicated members of the open source community."
+  }
+}

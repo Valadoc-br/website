@@ -1,30 +1,62 @@
-.nav {
-  position: relative;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 50px;
-  display: flex;
+nav {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   background-color: #1651b8;
   color: white;
-  font-weight: 400;
-  z-index: 100;
+  -webkit-box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 16px;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 9px 6px;
+  position: fixed;
+  top: 0;
+  width: calc(100% - 12px);
+  z-index: 1000;
 }
 
-.nav img {
+nav img {
   margin: 0 16px;
-}
-
-.toolbar #twitter-logo {
-  height: 40px;
-  margin: 0 16px;
-}
-
-.toolbar #twitter-logo:hover {
-  opacity: 0.8;
 }
 
 .spacer {
   flex: 1;
+}
+
+#lang-switcher {
+  letter-spacing: .025em !important;
+  padding-top: .25rem !important;
+  padding-bottom: .25rem !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  --bg-opacity: 1 !important;
+  background-color: #1651b8 !important;
+  color: #ffffff;
+  text-transform: none;
+  font-family: inherit;
+  font-size: 100%;
+  margin: 0;
+  overflow: visible !important;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  word-spacing: normal;
+  text-rendering: auto;
+  align-items: center;
+  white-space: pre;
+  cursor: default;
+  font: 400 13.3333px Arial;
+  border-radius: 0px;
+  width: 11%;
+}
+
+select#lang-switcher, :after, :before {
+  box-sizing: border-box;
+  border: 0 solid #e7e8f2;
 }
